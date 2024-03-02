@@ -1,5 +1,23 @@
 let getElementHeart = document.getElementById('heart');
 
+
+function showText(index) {
+    let textSpan = document.querySelectorAll('.heart__content');
+    textSpan.forEach(function(text, i) {
+        if(text.style.display = 'block') {
+            text.style.opacity = '0';
+        }
+
+        if(index == i) {
+            text.style.opacity = '0';
+            text.style.display = 'block';
+            text.style.opacity = '1';
+        }
+    });
+}
+
+showText(0);
+
 //view 1 to view 2
 getElementHeart.addEventListener('click', function(){
     //phong to khung chua trai tim
@@ -23,18 +41,38 @@ getElementHeart.addEventListener('click', function(){
         });
     }
 
+
+
     promise
         .then(function(){
             heart__content.style.color = 'rgba(0, 0, 0, 0)';
-            return sleep(1000);
+            showText(1);
+            return sleep(4000);
         })
         .then(function(){
-            heart__content.style.display = 'none';
             getElementHeart.style.background = '#fe466b';
-            return sleep(1500);
+            showText(2);
+            return sleep(4000);
         })
         .then(function(){
-            getHeart__icon.style.display = 'none';
+            showText(3);
+            return sleep(4000);
+        })
+        .then(function(){
+            showText(4);
+            return sleep(4000);
+        })
+        .then(function(){
+            showText(5);
+            return sleep(4000);
+        })
+        .then(function(){
+            showText(6);
+            return sleep(4000);
+        })
+        .then(function(){
+            showText(7);
+            return sleep(4000);
         })
 });
 
