@@ -1,4 +1,7 @@
-let getElementHeart = document.getElementById('heart');
+let getElementHeart = document.querySelector('.heart__icon');
+let getElementSpanFirst = document.getElementById('click_span');
+
+console.log(getElementSpanFirst);
 
 
 function showText(index) {
@@ -16,18 +19,28 @@ function showText(index) {
     });
 }
 
-showText(0);
+function end() {
+    let imgCat = document.querySelector('.cat__flower');
+    let boxImgCat = document.querySelector('.box-cat__flower');
 
-//view 1 to view 2
-getElementHeart.addEventListener('click', function(){
+    imgCat.setAttribute('style', 'height: 500px; width: 500px; margin: auto;');
+    boxImgCat.setAttribute('style', 'height: 100%; width: 100%; margin: auto; position: fixed; top: 0; left: 0; display: flex;');
+}
+
+function thucThiCauLenh() {
     //phong to khung chua trai tim
-    this.style.width = '150%';
-    this.style.height = '150%';
+    let khungTraiTim = document.getElementById('heart');
+    khungTraiTim.style.width = '150%';
+    khungTraiTim.style.height = '150%';
 
     //phong to trai tim
     let getHeart__icon = document.querySelector('.heart__icon');
     getHeart__icon.setAttribute('style', 'font-size: 10000px; color: #fe466b; top: calc(0px - 5000px); left: calc(0px - 4000px);');
 
+    // an trai tim va chuyen mau nen thanh mau giong trai tim
+    // let background = document.getElementById('main');
+    // background.setAttribute('style', 'background-color: #fe466b;');
+    // getHeart__icon.display = "none";
 
     //an content
     let heart__content = document.querySelector('.heart__content');
@@ -45,18 +58,26 @@ getElementHeart.addEventListener('click', function(){
 
     promise
         .then(function(){
-            heart__content.style.color = 'rgba(0, 0, 0, 0)';
+            getElementHeart.style.background = '#fe466b';
+
+            // dua covered len dau de be lai man hinh
+            let covered = document.querySelector('.covered');
+            covered.setAttribute('style', 'position: fixed; top: 0; left: 0; background-color: rgba(255, 255, 255, 0); z-index: 100; width: 100%; height: 100vh;')
+
             showText(1);
-            return sleep(4000);
+            return sleep(3000);
         })
         .then(function(){
-            getElementHeart.style.background = '#fe466b';
+            // an trai tim va chuyen mau nen thanh mau giong trai tim
+            let background = document.getElementById('main');
+            background.setAttribute('style', 'background-color: #fe466b;');
+            // getHeart__icon.display = "none";
             showText(2);
             return sleep(4000);
         })
         .then(function(){
             showText(3);
-            return sleep(4000);
+            return sleep(3000);
         })
         .then(function(){
             showText(4);
@@ -72,8 +93,27 @@ getElementHeart.addEventListener('click', function(){
         })
         .then(function(){
             showText(7);
+            return sleep(2000);
+        })
+        .then(function(){
+            let a = document.querySelector('.heart__icon');
+            a.style.opacity = '0';
+            let background = document.getElementById('main');
+            background.setAttribute('style', 'background-color: rgba(255, 255, 255, 0);')
+
+            end();
             return sleep(4000);
         })
+}
+
+showText(0);
+
+
+getElementHeart.addEventListener('click', function(){
+    thucThiCauLenh();
 });
 
-//view 2 to end-view 2 (qua trinh moc cay)
+getElementSpanFirst.addEventListener('click', function(){
+    thucThiCauLenh();
+});
+

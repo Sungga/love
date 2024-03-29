@@ -10,17 +10,22 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
-    <div id="main">
+    <div id="main" style="background-color: #fff;">
+        <div class="covered" style="position: fixed; top: 0; left: 0; background-color: rgba(255, 255, 255, 0); width: 100%; height: 100vh;"></div>
+        <video class="background-video" src="video.mp4" autoplay loop muted></video>
         <div id="heart">
+            <!-- <div class="covered__heart" style="position: fixed; top: 0; left: 0; background-color: blue; width: 350px; height: 350px; margin: auto;"></div> -->
             <i class="fa-solid fa-heart fa-beat heart__icon" style="color: #fe466b;"></i>
-            <span class="heart__content heart__content--first">Ấn vào đây!</span>
+            <span class="heart__content heart__content--first" id="click_span" style="z-index: 90;">Ấn vào đây!</span>
             <span class="heart__content">Hôm nay là một ngày đặc biệt!</span>
-            <span class="heart__content">Là ngày sinh nhật của một cô gái rất đặc biệt đối với anh!</span>
+            <span class="heart__content">Là ngày sinh nhật của một cô gái rất đặc biệt!</span>
             <span class="heart__content">Nên là!</span>
             <span class="heart__content">Anh muốn chúc cô gái ấy ngày càng xinh đẹp và ngày càng giỏi dang!</span>
-            <span class="heart__content">Chúc cô gái ấy sớm có được anh :>>!</span>
-            <span class="heart__content">Nói chung là anh muốn chúc em sinh nhật vui vẻ!</span>
-            <span class="heart__content">Yêu em x3.14!</span>
+            <span class="heart__content">Càng ngày càng yêu đời nha bé 🎂</span>
+            <span class="heart__content">Yêu Thư ❤️ x3.14!</span>
+            <div style="display: block;" class="box-cat__flower">
+                <img src="cat-removebg-preview.png" alt="" class="cat__flower" style="margin: auto;">
+            </div>
         </div>
     </div>
 
